@@ -1,0 +1,88 @@
+body{
+    overflow: hidden;
+    
+}
+.navbar{
+    background-color:  white;
+    z-index: 11;
+}
+.active{
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+.banner{
+    width: 750px;
+    height: 450px;
+    margin-top: 50px;
+    z-index: 9;
+    position: relative;
+}
+.content{
+    width: 1366px;
+}
+.lingkaran1{
+    margin-top: -600px;
+    width: 850px;
+    height: 850px;
+    margin-left: 160px;
+    border-radius: 50%;
+    background-color: #48a1f549;
+
+    position: relative;
+    z-index: 1;
+}
+.lingkaran2{
+    margin-top: -700px;
+    width: 250px;
+    height: 250px;
+    margin-left: 500px;
+    border-radius: 50%;
+    background-color: #ffffffd3;
+    position: relative;
+    z-index: 2;
+}
+.lingkaran3{
+    margin-top: -300px;
+    margin-left: 300px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffffffd3;
+    position: relative;
+    z-index: 3;
+}
+.lingkaran4{
+    margin-top: 200px;
+    margin-left: 450px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffffffd3;
+    position: relative;
+    z-index: 4;
+}
+.lingkaran5{
+    margin-top: -200px;
+    margin-left: 350px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ffffffd3;
+    position: relative;
+    z-index: 2;
+}
+.lingkaran6{
+    margin-top: -200px;
+    margin-left: 100px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #ffffffd3;
+    position: relative;
+    z-index: 2;
+}
+.login{
+    width: 150px;
+    border-radius: 20px;
+    margin-top: 85px;
+}
