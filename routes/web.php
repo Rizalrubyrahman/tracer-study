@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 //user
 Route::get('/','UserController@home');
+Route::get('/registrasi','UserController@registrasi');
+Route::post('/registrasi','UserController@prosesRegistrasi');
 //admin
 //alumni
 Route::get('/admin/alumni','AlumniController@index');

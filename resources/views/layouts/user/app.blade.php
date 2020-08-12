@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edumark</title>
+    <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,11 @@
     <link rel="stylesheet" type="text/css" href="{!!asset('assets/css/style.css')!!}">
 
 </head>
-<body>
+@if (request()->is('/'))
+    <body style="overflow: hidden;">
+@else
+    <body>
+@endif
     @include('layouts.user.navigation')
     @yield('content')
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

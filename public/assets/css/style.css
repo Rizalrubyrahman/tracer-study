@@ -1,12 +1,19 @@
-body{
-    overflow: hidden;
-    
-}
 .navbar{
     background-color:  white;
     z-index: 11;
 }
 .active{
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+.active:hover{
+    border-bottom: 0px solid #007bff;
+    font-weight: bold;
+}
+.nav-link{
+    margin-left: 5px;
+}
+.nav-link:hover{
     border-bottom: 2px solid #007bff;
     font-weight: bold;
 }

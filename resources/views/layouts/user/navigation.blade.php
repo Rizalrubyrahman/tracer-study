@@ -16,8 +16,10 @@
             </li>
             
         </ul>
-        <div class="d-flex justify-content-right">
-          <a href="" class="btn btn-sm btn-dark" style="border-radius:20px; width:100px;">Register</a>
-        </div>
+        @if (request()->is('/'))
+            <div class="d-flex justify-content-right">
+                <a href="/registrasi" class="btn btn-sm btn-dark" style="border-radius:20px; width:100px;">Register</a>
+            </div>
+        @endif
     </div>
 </nav>
