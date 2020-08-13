@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Alumni;
 use Carbon\Carbon;
 use App\User;
+use Auth;
 
 class UserController extends Controller
 {
@@ -17,10 +18,11 @@ class UserController extends Controller
     }
     public function registrasi()
     {
-        return view('user.registrasi');
+        return view('auth.registrasi');
     }
     public function prosesRegistrasi(RegistrasiRequest $request)
     {
+        //upload gambar
         if($request->file('gambar')) {
             $file = $request->file('gambar');
             $tempat_file = public_path('/images');
@@ -32,12 +34,13 @@ class UserController extends Controller
         } else {
             $gambar = NULL;
         }
+        //input data user
             $user = new User;
             $user->name = $request->nama;
+            $user->role = 'user';
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->save(); 
-
 
             Alumni::create([
                 'user_id' => $user->id,
@@ -49,6 +52,28 @@ class UserController extends Controller
                 'no_telepon' => $request->no_telepon,
                 'gambar' => $gambar,
             ]);
+        return redirect('/');
+    }
+    public function login()
+    {
+        return view('auth.login');
+    }
+    public function prosesLogin(Request $request)
+    {
+        if(Auth::attempt($request->only('email','password'))){
+            if(auth()->user()->role == 'user'){
+                 return redirect('/');
+            }else{
+                return redirect('/admin');
+            }
+        }
+
+        session()->flash('error','Username atau password yang anda masukan salah');
+        return redirect()->back();
+    }
+    public function logout()
+    {
+        Auth::logout();
         return redirect('/');
     }
 }

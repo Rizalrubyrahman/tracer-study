@@ -12,12 +12,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//user
-Route::get('/','UserController@home');
-Route::get('/registrasi','UserController@registrasi');
-Route::post('/registrasi','UserController@prosesRegistrasi');
-//admin
-//alumni
-Route::get('/admin/alumni','AlumniController@index');
-//dashboard
-Route::get('/admin','DashboardController@index');
+Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
+    //user
+    
+
+    //admin
+    //alumni
+    Route::get('/admin/alumni','AlumniController@index');
+    //dashboard
+    Route::get('/admin','DashboardController@index');
+});
+
+    Route::get('/','UserController@home');
+
+    //registrasi
+    Route::get('/registrasi','UserController@registrasi');
+    Route::post('/registrasi','UserController@prosesRegistrasi');
+    //login
+    Route::get('/login','UserController@login')->name('login');
+    Route::post('/login','UserController@prosesLogin');
+    Route::get('/logout','UserController@logout');

@@ -6,7 +6,9 @@
      <div class="col-md-4">
       <h1 style="margin-top:150px; font-size:54px;">Tracer Study</h1>
       <p>Studi penelusuran jejak lulusan/alumni yang dilakukan setelah lulus.</p>
-      <a href="" class="btn btn-primary login">Login</a>
+      @if (Auth::guest())
+          <a href="/login" class="btn btn-primary login">Login</a>
+      @endif   
      </div>
      <div class="col-md-8">
       

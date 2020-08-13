@@ -15,11 +15,15 @@
                 <a class="nav-link" style="color: black;" href="#">Informasi</a>
             </li>
             
-        </ul>
-        @if (request()->is('/'))
-            <div class="d-flex justify-content-right">
-                <a href="/registrasi" class="btn btn-sm btn-dark" style="border-radius:20px; width:100px;">Register</a>
-            </div>
-        @endif
+        </ul> 
+        <div class="d-flex justify-content-right">
+            @if (Auth::guest())
+                @if (request()->is('/'))
+                    <a href="/registrasi" class="btn btn-sm btn-dark" style="border-radius:20px; width:100px;">Registrasi</a>
+                @endif
+            @else
+                <a href="/logout" class="btn btn-sm btn-dark" style="border-radius:20px; width:100px;">Logout</a>
+            @endif
+       </div>
     </div>
 </nav>
