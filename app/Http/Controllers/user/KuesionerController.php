@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use Illuminate\Http\Request;
 use App\pertanyaan;
 use App\Jawaban;
 use App\Http\Requests\KuesionerRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\Controller;
 
 class KuesionerController extends Controller
 {

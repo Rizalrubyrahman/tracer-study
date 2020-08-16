@@ -22,6 +22,11 @@ class CreateJawabanTable extends Migration
             $table->string('jawaban3');
             $table->string('jawaban4');
             $table->string('jawaban5');
+            $table->string('jawaban6')->nullable();
+            $table->string('jawaban7')->nullable();
+            $table->string('jawaban8')->nullable();
+            $table->string('jawaban9')->nullable();
+            $table->string('jawaban10')->nullable();
             $table->timestamps();
         });
     }

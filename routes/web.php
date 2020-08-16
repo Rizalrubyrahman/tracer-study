@@ -15,22 +15,25 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
     //user
     //kuesioner
-    Route::get('/kuesioner','KuesionerController@index');
-    Route::post('/kuesioner','KuesionerController@simpanKuesioner');
+    Route::get('/kuesioner','user\KuesionerController@index');
+    Route::post('/kuesioner','user\KuesionerController@simpanKuesioner');
+
+    //event
+    Route::get('/event','user\EventController@index');
 
     //admin
     //alumni
-    Route::get('/admin/alumni','AlumniController@index');
+    Route::get('/admin/alumni','admin\AlumniController@index');
     //dashboard
-    Route::get('/admin','DashboardController@index');
+    Route::get('/admin','admin\DashboardController@index');
 });
 
-    Route::get('/','UserController@home');
+    Route::get('/','user\UserController@home');
 
     //registrasi
-    Route::get('/registrasi','UserController@registrasi');
-    Route::post('/registrasi','UserController@prosesRegistrasi');
+    Route::get('/registrasi','user\UserController@registrasi');
+    Route::post('/registrasi','user\UserController@prosesRegistrasi');
     //login
-    Route::get('/login','UserController@login')->name('login');
-    Route::post('/login','UserController@prosesLogin');
-    Route::get('/logout','UserController@logout');
+    Route::get('/login','user\UserController@login')->name('login');
+    Route::post('/login','user\UserController@prosesLogin');
+    Route::get('/logout','user\UserController@logout');
