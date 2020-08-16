@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistrasiRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Alumni;
 use Carbon\Carbon;
 use App\User;
@@ -22,7 +23,7 @@ class UserController extends Controller
     }
     public function prosesRegistrasi(RegistrasiRequest $request)
     {
-        //upload gambar
+        //upload gambar`
         if($request->file('gambar')) {
             $file = $request->file('gambar');
             $tempat_file = public_path('/images');
@@ -40,6 +41,7 @@ class UserController extends Controller
             $user->role = 'user';
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
+            $user->remember_token = Str::random(60);
             $user->save(); 
 
             Alumni::create([

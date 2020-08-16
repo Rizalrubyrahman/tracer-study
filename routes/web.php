@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
     //user
-    
+    //kuesioner
+    Route::get('/kuesioner','KuesionerController@index');
+    Route::post('/kuesioner','KuesionerController@simpanKuesioner');
 
     //admin
     //alumni

@@ -83,6 +83,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">Login</button>
+                                    <p>belum punya akun? <u><a href="/registrasi">Daftar disini</a></u></p>
                                 </div>
                             </form>
                         </div>

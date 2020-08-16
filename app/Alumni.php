@@ -13,7 +13,6 @@ class Alumni extends Model
         'jurusan',
         'alamat',
         'jenis_kelamin',
-        'status',
         'no_telepon',
         'gambar',
     ];

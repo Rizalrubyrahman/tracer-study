@@ -43,16 +43,6 @@
                                 </label>
                             </div>
                             {!!$errors->first('jenis_kelamin','<span class="invalid-feedback">:message</span>')!!}
-                            <div class="form-group mt-2">
-                                <label>Status</label>
-                                <select name="status" class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }}">
-                                    <option selected disabled>--Pilih--</option>
-                                    <option value="Bekerja">Bekerja</option>
-                                    <option value="Kuliah">Kuliah</option>
-                                    <option value="Dll">Dll</option>
-                                </select>
-                                {!!$errors->first('status','<span class="invalid-feedback">:message</span>')!!}
-                            </div>
                             <div class="form-group">
                                 <label>No telpon</label>
                                 <input type="text" name="no_telepon" value="{{ old('no_telepon') }}" class="form-control{{ $errors->has('no_telepon') ? ' is-invalid' : '' }}">

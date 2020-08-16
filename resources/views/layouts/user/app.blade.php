@@ -23,6 +23,8 @@
     <body>
 @endif
     @include('layouts.user.navigation')
+    @include('sweetalert::alert')
+
     @yield('content')
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
