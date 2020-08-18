@@ -16,5 +16,8 @@ class Alumni extends Model
         'no_telepon',
         'gambar',
     ];
-
+    public function user()
+    {
+        return $this->belongsTo(User::class ,'user_id');
+    }
 }

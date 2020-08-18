@@ -19,6 +19,10 @@ class Jawaban extends Model
         'jawaban9',
         'jawaban10'];
     protected $table = 'jawaban';
-
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
     
 }

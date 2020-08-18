@@ -28,5 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
- 
+    public function alumni()
+    {
+        return $this->hasOne(Alumni::class);
+    }
+    public function jawaban()
+    {
+        return $this->hasOne(Jawaban::class);
+    }
 }

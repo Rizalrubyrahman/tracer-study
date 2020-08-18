@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\user;
 
-
-use App\Http\Requests\RegistrasiRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Str;
-use App\Alumni;
-use Carbon\Carbon;
+use App\pertanyaan;
+use App\Jawaban;
+use App\Http\Requests\KuesionerRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\User;
-use Auth;
+use App\Event;
 
 class UserController extends Controller
 {
@@ -18,65 +17,46 @@ class UserController extends Controller
     {
         return view('user.home');
     }
-    public function registrasi()
-    {
-        return view('auth.registrasi');
-    }
-    public function prosesRegistrasi(RegistrasiRequest $request)
-    {
-        //upload gambar`
-        if($request->file('gambar')) {
-            $file = $request->file('gambar');
-            $tempat_file = public_path('/images');
-            $dt = Carbon::now();
-            $acak  = $file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
-            $request->file('gambar')->move($tempat_file, $fileName);
-            $gambar = $fileName;
-        } else {
-            $gambar = NULL;
-        }
-        //input data user
-            $user = new User;
-            $user->name = $request->nama;
-            $user->role = 'user';
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            $user->remember_token = Str::random(60);
-            $user->save(); 
 
-            Alumni::create([
-                'user_id' => $user->id,
-                'nama' => $request->nama,
-                'jurusan' => $request->jurusan,
-                'alamat' => $request->alamat,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'status' => $request->status,
-                'no_telepon' => $request->no_telepon,
-                'gambar' => $gambar,
-            ]);
-        return redirect('/');
-    }
-    public function login()
+    public function event()
     {
-        return view('auth.login');
+        $events = Event::all();
+        return view('user.event.index',compact('events'));
     }
-    public function prosesLogin(Request $request)
-    {
-        if(Auth::attempt($request->only('email','password'))){
-            if(auth()->user()->role == 'user'){
-                 return redirect('/');
-            }else{
-                return redirect('/admin');
-            }
-        }
 
-        session()->flash('error','Username atau password yang anda masukan salah');
-        return redirect()->back();
-    }
-    public function logout()
+    public function kuesioner()
     {
-        Auth::logout();
-        return redirect('/');
+        $pertanyaans = Pertanyaan::all();
+     return view('user.kuesioner.index',compact('pertanyaans'));
+    }
+
+    public function simpanKuesioner(KuesionerRequest $request)
+    {
+            Jawaban::create([
+            'user_id' => auth()->user()->id,
+            'jawaban1' => $request->jawaban1,
+            'jawaban2' => $request->jawaban2,
+            'jawaban3' => $request->jawaban3,
+            'jawaban4' => $request->jawaban4,
+            'jawaban5' => $request->jawaban5,
+            'jawaban6' => $request->jawaban6,
+            'jawaban7' => $request->jawaban7,
+            'jawaban8' => $request->jawaban8,
+            'jawaban9' => $request->jawaban9,
+            'jawaban10' => $request->jawaban10,
+        ]);
+            alert()->success('Terima kasih','Kuesioner telah di kirim');
+            return redirect('/');
+        
+    }
+
+    public function alumni()
+    {
+        $kuliah = Jawaban::where('jawaban1','A')->count();
+        $bekerja = Jawaban::where('jawaban1','B')->count();
+        $menganggur = Jawaban::where('jawaban1','C')->count();
+        $dll = Jawaban::where('jawaban1','D')->count();
+
+        return view('user.alumni.index',compact('kuliah','bekerja','menganggur','dll'));
     }
 }

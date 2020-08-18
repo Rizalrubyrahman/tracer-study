@@ -2,7 +2,7 @@
 @section('title','Event')
 @section('content')
 <div class="container" style="margin-top:50px;">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex">
         <div>
             <h4>List event</h4>
             <hr style="border-bottom:1px solid black">

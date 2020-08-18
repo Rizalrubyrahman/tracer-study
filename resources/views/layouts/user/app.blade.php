@@ -28,5 +28,7 @@
     @yield('content')
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/chart.js') }}"></script>
+    @yield('charts')
 </body>
 </html>
