@@ -13,12 +13,12 @@
      <div class="col-md-8">
       
       <img src="{{ asset('assets/img/banner/5853.png') }}" class="banner"> 
-      <div class="lingkaran1"></div>
-      <div class="lingkaran2"></div>
-      <div class="lingkaran3"></div>
-      <div class="lingkaran4"></div>
-      <div class="lingkaran5"></div>
-      <div class="lingkaran6"></div>
+        <div class="lingkaran1"></div>
+        <div class="lingkaran2"></div>
+        <div class="lingkaran3"></div>
+        <div class="lingkaran4"></div>
+        <div class="lingkaran5"></div>
+        <div class="lingkaran6"></div>
      </div>
    </div>
   </div>

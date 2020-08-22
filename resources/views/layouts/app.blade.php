@@ -22,9 +22,11 @@
     -->
 <link href="{{asset('assets/css/main.css')}}" rel="stylesheet"></head>
 <body>
+    @yield('modal')
     @include('layouts.navigation')
     @include('layouts.sidebar')
-    <div class="app-main__outer">
+    <div class="app-main__outer" >
+        @include('sweetalert::alert')
         <div class="app-main__inner">
             @include('layouts.heading')
             @yield('content')

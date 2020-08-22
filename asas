@@ -1,0 +1,41 @@
+[33mcommit 851a740cab71b83a317a7f49184e6b9abddaecfe[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Tue Aug 18 07:11:39 2020 +0700
+
+    membuat chart alumni dan memperbaiki tampilan logout
+
+[33mcommit c044394f6df2e8026bdbcc5b65cc1cad1bd79153[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Mon Aug 17 06:35:16 2020 +0700
+
+    membuat event alumni
+
+[33mcommit 354ea6172c020812e9bd5b809fa11b1535713968[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Sun Aug 16 22:19:48 2020 +0700
+
+    membuat kuesioner alumni dan menambahkan sweetalert
+
+[33mcommit 63dfa949f874c0f2807721f972c25e3d2b4db027[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Fri Aug 14 04:49:55 2020 +0700
+
+    membuat login
+
+[33mcommit 97ea13d5d32939a56b8ed2e8bb1c1058bff69b7c[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Thu Aug 13 03:09:41 2020 +0700
+
+    membuat registrasi user
+
+[33mcommit 3fd099731ba27b05d9371a5fb0f8e39600856fb4[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Wed Aug 12 03:14:17 2020 +0700
+
+    membuat tampilan beranda user dan membuat dashboard admin
+
+[33mcommit c431329f0b5ef1496e4182390f756bc394979b8c[m
+Author: Rizalrubyrahman <rizalrubyr@gmail.com>
+Date:   Tue Aug 11 17:10:44 2020 +0700
+
+     commit pertama

@@ -25,7 +25,7 @@ class AuthController extends Controller
             $tempat_file = public_path('/images');
             $dt = Carbon::now();
             $acak  = $file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $fileName = rand(11111,99999).'-'.$dt->format('d-m-Y:H-i-s').'.'.$acak; 
             $request->file('gambar')->move($tempat_file, $fileName);
             $gambar = $fileName;
         } else {
@@ -46,7 +46,6 @@ class AuthController extends Controller
                 'jurusan' => $request->jurusan,
                 'alamat' => $request->alamat,
                 'jenis_kelamin' => $request->jenis_kelamin,
-                'status' => $request->status,
                 'no_telepon' => $request->no_telepon,
                 'gambar' => $gambar,
             ]);

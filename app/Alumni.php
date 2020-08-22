@@ -20,4 +20,15 @@ class Alumni extends Model
     {
         return $this->belongsTo(User::class ,'user_id');
     }
+    public function getGambar()
+    {
+        if(!$this->gambar){
+            if($this->jenis_kelamin == 'Laki-Laki'){
+                return asset('images/default-laki2.jpg');
+            }else{
+                return asset('images/default-perempuan.jpg');
+            }
+        }
+        return asset('images/'.$this->gambar);
+    }
 }

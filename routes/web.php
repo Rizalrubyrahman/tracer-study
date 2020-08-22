@@ -27,6 +27,9 @@ Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
     //admin
     //alumni
     Route::get('/admin/alumni','admin\AlumniController@index');
+    Route::get('/admin/alumni/{alumni}/profile','admin\AlumniController@profile');
+    Route::put('/admin/alumni/{alumni}/edit','admin\AlumniController@update');
+    Route::post('/admin/alumni/{alumni}/delete','admin\AlumniController@delete');
     //dashboard
     Route::get('/admin','admin\DashboardController@index');
 });
