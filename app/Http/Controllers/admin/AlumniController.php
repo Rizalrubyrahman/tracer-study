@@ -12,19 +12,22 @@ class AlumniController extends Controller
 {
     public function index()
     {
-        $data_alumni = Alumni::all();
-        return view('admin.alumni.index',compact('data_alumni'));
+        $alumnis = Alumni::all();
+        return view('admin.alumni.index',compact('alumnis'));
     }
+
     public function delete(Alumni $alumni)
     {
         $alumni->delete();
-        alert()->success('Berhasil','Data telah di hapus');
+        alert()->success('Berhasil','Data alumni telah di hapus');
         return redirect()->back();
     }
+
     public function profile(Alumni $alumni)
     {
         return view('admin.alumni.profile',compact('alumni'));
     }
+    
     public function update(Alumni $alumni, Request $request)
     {
         $alumni->update($request->all());
@@ -38,7 +41,7 @@ class AlumniController extends Controller
         }
         if($alumni)
         {
-            alert()->success('Berhasil','Data telah di ubah');
+            alert()->success('Berhasil','Data alumni telah di ubah');
         return redirect('/admin/alumni');
         }
     }

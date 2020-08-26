@@ -29,7 +29,15 @@ Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
     Route::get('/admin/alumni','admin\AlumniController@index');
     Route::get('/admin/alumni/{alumni}/profile','admin\AlumniController@profile');
     Route::put('/admin/alumni/{alumni}/edit','admin\AlumniController@update');
-    Route::post('/admin/alumni/{alumni}/delete','admin\AlumniController@delete');
+    Route::post('/admin/alumni/{alumni}/hapus','admin\AlumniController@delete');
+
+    //pertanyaan
+    Route::get('/admin/pertanyaan','admin\PertanyaanController@index');
+    Route::post('/admin/pertanyaan/{pertanyaan}/hapus','admin\PertanyaanController@delete');
+    Route::get('/admin/pertanyaan/tambah','admin\PertanyaanController@tambah');
+    Route::post('/admin/pertanyaan/tambah','admin\PertanyaanController@store');
+    Route::get('/admin/pertanyaan/{pertanyaan}/edit','admin\PertanyaanController@edit');
+    Route::put('/admin/pertanyaan/{pertanyaan}/edit','admin\PertanyaanController@update');
     //dashboard
     Route::get('/admin','admin\DashboardController@index');
 });

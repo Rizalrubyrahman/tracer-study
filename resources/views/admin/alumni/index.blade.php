@@ -12,6 +12,7 @@
             <table class="mb-0 table table-bordered">
                 <thead>
                 <tr>
+                    <th class="text-center">No</th>
                     <th>Nama</th>
                     <th class="text-center">Jurusan</th>
                     <th>Alamat</th>
@@ -21,8 +22,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data_alumni as $alumni)
+                    @php
+                       $no = 1; 
+                    @endphp
+                    @foreach ($alumnis as $alumni)
                         <tr>
+                            <td class="text-center">{{ $no++ }}</td>
                             <td>{{ $alumni->nama }}</td>
                             <td class="text-center">{{ $alumni->jurusan }}</td>
                             <td>{{ $alumni->alamat }}</td>
@@ -62,7 +67,7 @@
             <h4 class="text-center">Yakin mau Di hapus?</h4>
         </div>
         <div class="modal-footer">
-            <form action="/admin/alumni/{{ $alumni->id }}/delete" method="POST">
+            <form action="/admin/alumni/{{ $alumni->id }}/hapus" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-danger mr-4">Delete</button>
             </form>
