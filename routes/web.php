@@ -38,6 +38,15 @@ Route::group(['middleware' => ['auth','cekRole:user,admin']], function () {
     Route::post('/admin/pertanyaan/tambah','admin\PertanyaanController@store');
     Route::get('/admin/pertanyaan/{pertanyaan}/edit','admin\PertanyaanController@edit');
     Route::put('/admin/pertanyaan/{pertanyaan}/edit','admin\PertanyaanController@update');
+
+    //event
+    Route::get('/admin/event','admin\EventController@index');
+    Route::get('/admin/event/tambah','admin\EventController@tambah');
+    Route::post('/admin/event/tambah','admin\EventController@store');
+    Route::get('/admin/event/{event}/edit','admin\EventController@edit');
+    Route::put('/admin/event/{event}/edit','admin\EventController@update');
+    Route::post('/admin/event/{event}/hapus','admin\EventController@delete');
+
     //dashboard
     Route::get('/admin','admin\DashboardController@index');
 });

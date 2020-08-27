@@ -13,7 +13,7 @@ class EventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3',
+            'tempat' => 'required|min:3',
+            'waktu' => 'required',
+            'tanggal' => 'required',
+            'description' => 'required:min:3',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Judul tidak boleh kosong',
+            'tanggal.required' => 'Tanggal tidak boleh kosong',
+            'tempat.required' => 'Tempat tidak boleh kosong',
+            'waktu.required' => 'Jam tidak boleh kosong',
+            'description.required' => 'Deskripsi tidak boleh kosong',
+            'title.min' => 'Judul minimal 3 karakter',
+            'tempat.min' => 'Tempat minimal 3 karakter',
+            'description.min' => 'Deskripsi minimal 3 karakter',
         ];
     }
 }
