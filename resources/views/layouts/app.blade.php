@@ -21,7 +21,7 @@
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
 <link href="{{asset('assets/css/main.css')}}" rel="stylesheet"></head>
-<body>
+<body style="overflow-x:hidden;">
     @yield('modal')
     @include('layouts.navigation')
     @include('layouts.sidebar')
@@ -32,6 +32,9 @@
             @yield('content')
         </div>
     </div>
-<script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/chart.js') }}"></script>
+    @yield('charts')
 </body>
 </html>
